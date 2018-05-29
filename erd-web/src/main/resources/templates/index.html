@@ -1,39 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="common/header :: common_header(~{::title},~{})">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head th:replace="common/layout :: htmlhead">
     <title>Home page</title>
 </head>
 <body>
-<header th:replace="common/nav :: header"></header>
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">访问Model</h3>
-        </div>
-        <div class="panel-body">
-            <span th:text="${singlePerson.name}"></span>
-        </div>
+    <div layout:fragment="content">
+        首页内容首页内容首页内容首页内容首页内容首页内容首页内容首页内容首页内容首页内容首页内容
+        首页内容首页内容首页内容首页内容首页内容首页内容首页内容
     </div>
 
-    <div th:if="${not #lists.isEmpty(people)}">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">列表</h3>
-            </div>
-            <div class="panel-body">
-                <ul class="list-group">
-                    <li class="list-group-item" th:each="person:${people}">
-                        <span th:text="${person.name}"></span>
-                        <span th:text="${person.age}"></span>
-                        <button class="btn" th:onclick="'getName(\''+${person.name}+'\');'">获得名字</button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div th:replace="common/footer :: footer">
-
-    </div>
     <script th:inline="javascript">
         var single = [[${singlePerson}]];
         console.log(single.name+"/"+single.age);

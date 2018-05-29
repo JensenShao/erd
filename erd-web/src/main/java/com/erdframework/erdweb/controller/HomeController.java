@@ -2,7 +2,6 @@ package com.erdframework.erdweb.controller;
 
 
 import com.erdframework.erdweb.dao.po.Person;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +37,31 @@ public class HomeController {
         model.addAttribute("singlePerson", single);
         model.addAttribute("people", people);
         return "index";
+    }
+
+    @RequestMapping("/feature")
+    public String feature(Model model){
+        return "feature/feature";
+    }
+
+    @RequestMapping("/service")
+    public String service(Model model){
+        return "service/service";
+    }
+
+    @RequestMapping("/price")
+    public String price(Model model){
+        return "price/price";
+    }
+
+    @RequestMapping("/coop")
+    public String coop(Model model){
+        return "coop/coop";
+    }
+
+    @RequestMapping("/about")
+    public String about(Model model){
+        return "about/about";
     }
 
 }

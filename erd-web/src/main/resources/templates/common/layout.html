@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head th:fragment="htmlhead">
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+    <meta name="description" content=""></meta>
+    <meta name="author" content=""></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"></meta>
+    <link rel="icon" href="/img/icon.ico" type="image/x-icon" />
+    <title>erd site</title>
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.css}" />
+    <script th:src="@{/jquery-3.3.1.min.js}"></script>
+</head>
+
+<body class="layout-fixed">
+<div th:fragment="navbar"  class="wrapper"  role="navigation">
+    <div th:replace="common/nav :: header"></div>
+    <div layout:fragment="content" id="content" ></div>
+    <div th:replace="common/footer :: footer">Footer</div>
+</div>
+<script type="text/javascript" th:src="@{/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var size = /*[[${size}]]*/ 0;
+    if(size!=null && size>0){
+        locationUrl('/standard/my/0','home');
+    }else{
+        locationUrl('/tool','tool');
+    }
+    var config = /*[[${config}]]*/;
+    if(null != config){
+        $("#layoutConfigId").val(config.id);
+    }
+    /*]]>*/
+</script>
+</body>
+</html>

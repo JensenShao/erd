@@ -3,9 +3,9 @@
 <meta charset="UTF-8" />
 <body>
 <!-- th:fragment 定义用于加载的块 -->
-<span th:fragment="footer"> 2018  loaded by fragment=erd</span>
+<span th:fragment="footer"> 2018  footer</span>
 
-<span id="copy-section"> 2018  loaded by id=copy-section</span>
+<span id="copy-section"> 2018 copy</span>
 
 <!-- 定义模板时，可以传入参数 -->
 <span th:fragment="frag(month, date) "> <span th:text="'welcome hry come in ' + ${month} + '-' + ${date}"></span></span>
